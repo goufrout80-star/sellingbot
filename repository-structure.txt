@@ -1,0 +1,18 @@
+order_bot/
+├── config.py
+├── database.py
+├── models.py
+├── main.py
+├── README.md
+├── requirements.txt
+├── repository-structure.txt
+├── handlers/
+│   ├── __init__.py
+│   ├── common.py
+│   ├── auth.py
+│   ├── agent.py
+│   └── delivery.py
+└── services/
+    ├── __init__.py
+    ├── user_service.py
+    └── order_service.py
