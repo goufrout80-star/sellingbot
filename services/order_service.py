@@ -104,7 +104,12 @@ def get_orders_for_delivery_user(db: Session, delivery_user_id: int):
 
 def get_delivery_pending_orders(db: Session):
     return (
-        db.query(Order).options(joinedload(Order.product))
+        db.query(Order).options(
+            joinedload(Order.product),
+            joinedload(Order.period),
+            joinedload(Order.payment_method),
+            joinedload(Order.platform)
+        )
         .filter(Order.status == OrderStatus.WAITING_DELIVERY)
         .order_by(desc(Order.created_at))
         .all()
